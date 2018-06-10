@@ -1,0 +1,37 @@
+{
+   "name": "scrapp",
+   "version": "1.0.0",
+   "description": "Frontend boilerplate",
+   "main": "index.js",
+   "author": "Krzysztof Mianowski",
+   "license": "MIT",
+   "scripts": {
+      "clean": "rimraf ./public/*",
+      "build:dev": "webpack",
+      "build:staging": "webpack -p --env staging",
+      "build:prod": "webpack -p --env production",
+      "dev-server": "webpack-dev-server"
+   },
+   "dependencies": {
+      "autoprefixer": "^8.5.0",
+      "babel": "^6.23.0",
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.2",
+      "babel-preset-env": "^1.6.1",
+      "bootstrap": "^4.1.0",
+      "css-loader": "^0.28.7",
+      "dependencies": "0.0.1",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "file-loader": "^1.1.11",
+      "html-webpack-plugin": "^3.2.0",
+      "node-sass": "^4.7.2",
+      "normalize.css": "7.0.0",
+      "postcss-loader": "^2.1.5",
+      "rimraf": "^2.6.2",
+      "sass-loader": "^6.0.6",
+      "style-loader": "^0.19.1",
+      "syntax-highlighter": "^0.0.3",
+      "webpack": "^3.10.0",
+      "webpack-dev-server": "^2.9.7"
+   }
+}

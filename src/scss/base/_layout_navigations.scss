@@ -1,0 +1,105 @@
+
+   nav {
+
+      background-color: #eee;
+      border: 1px solid #aaa;
+
+      img {
+         display: block;
+      }
+
+      ul {
+
+         margin:0;
+         text-align: center;
+
+         li {
+            display: inline-block;
+            position: relative;
+
+            > a {
+               @extend .text-uppercase;
+               padding: 10px;
+               text-decoration: none;
+               color: black;
+
+               &:hover {
+                  background-color: #ddd;
+               }
+            }
+
+            &.has-sub-menu > a {
+
+               position: relative;
+               display: block;
+               padding-right: 20px;
+
+               &:after {
+                  content: '';
+                  display:block;
+                  position:absolute;
+                  top:50%;
+                  right:10px;
+                  width:0;
+                  height:0;
+                  border-top:3px solid black;
+                  border-left:3px solid transparent;
+                  border-right:3px solid transparent;
+                  margin-top: -3px;
+               }
+
+               &.active {
+
+                  color: green;
+
+                  &:after {
+                     border-top:none;
+                     border-bottom:3px solid green;
+                     border-left:3px solid transparent;
+                     border-right:3px solid transparent;
+                  }
+               }
+            }
+         }
+      }
+
+      .sub-menu {
+         transition: all .3s;
+         transform: translateY(40px);
+         visibility: hidden;
+         opacity: 0;
+         z-index: -1;
+         position: absolute;
+         top:42px;
+         left:0;
+         text-align: left;
+         background-color: #eee;
+
+         li {
+            display: block;
+            a {
+               border: 1px solid #aaa;
+               border-bottom: none;
+               display: block;
+               white-space: nowrap;
+               padding: 10px 20px;
+               color: green;
+
+               &:hover{
+                  background-color: white;
+               }
+            }
+
+            &:last-child {
+               border-bottom: 1px solid #aaa;
+            }
+         }
+
+         &.active {
+            transform: translateY(0);
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+         }
+      }
+   }
