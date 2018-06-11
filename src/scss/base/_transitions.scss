@@ -1,0 +1,12 @@
+
+   .collapse {
+      max-height: 0px;
+      overflow: hidden;
+      transition: all 0.35s;
+      visibility: hidden;
+
+      &.active {
+         max-height: 500px;
+         visibility: visible;
+      }
+   }

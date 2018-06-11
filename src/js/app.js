@@ -12,7 +12,6 @@
       document.onclick = function(e) {
          const target = e.target;
          if (target !== navigation && !navigation.contains(e.target)){
-            console.log('outside');
             classtogglerRemoveClassByGroup('navigation')
          }
       }

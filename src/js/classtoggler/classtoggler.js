@@ -14,6 +14,7 @@
 
       togglers.forEach(function(toggler){
 
+         const togglerTargets = toggler.getAttribute('data-toggler-target').split(',');
          const togglerTarget = document.querySelector(toggler.getAttribute('data-toggler-target'));
          const customTargetClass = toggler.getAttribute('data-toggler-class');
          const togglerGroup = toggler.getAttribute('data-toggler-group');
@@ -37,7 +38,9 @@
 
                      // add the needed classes
                      toggler.classList.add('active')
-                     togglerTarget.classList.add(togglerClass);
+                     togglerTargets.forEach(togglerTarget => {
+                        document.querySelector(togglerTarget).classList.add(togglerClass);
+                     });
                   }
 
             // if no groups defined
@@ -46,7 +49,9 @@
 
                   // add the needed classes
                   toggler.classList.toggle('active')
-                  togglerTarget.classList.toggle(togglerClass);
+                  togglerTargets.forEach(togglerTarget => {
+                     document.querySelector(togglerTarget).classList.toggle(togglerClass);
+                  });
                }
          });
       });
