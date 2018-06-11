@@ -1,28 +1,37 @@
 
+
+   window.togglers = document.querySelectorAll('[data-toggler-target]');
+
    export function classtoggler(){
-
-      const togglers = document.querySelectorAll('[data-toggler-target]');
-
-      // remove all of the classes
-      function clear(groupItems, togglerClass){
-         groupItems.forEach(function(groupItem){
-            groupItem.classList.remove('active');
-            const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
-            togglerGroupTarget.classList.remove(togglerClass);
-         });
-      }
-
       togglers.forEach(function(toggler){
+         toggler.addEventListener('click', handleToggleClick, true);
+      });
+   }
 
-         const togglerTargets = toggler.getAttribute('data-toggler-target').split(',');
-         const togglerTarget = document.querySelector(toggler.getAttribute('data-toggler-target'));
-         const customTargetClass = toggler.getAttribute('data-toggler-class');
-         const togglerGroup = toggler.getAttribute('data-toggler-group');
-         const togglerClass = customTargetClass ? customTargetClass : 'active';
+   // remove all of the classes
+   function clear(groupItems, togglerClass){
+      groupItems.forEach(function(groupItem){
+         groupItem.classList.remove('active');
+         const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
+         togglerGroupTarget.classList.remove(togglerClass);
+      });
+   }
 
-         toggler.addEventListener('click', function(e){
+   // handle click
+   function handleToggleClick(e){
 
-            e.preventDefault();
+      e.preventDefault();
+      const nodes = e.path;
+
+      // lets handle the bubbbling in case the selector is a parent f.ex <a data-toggler-target=""><img></a>
+      nodes.forEach(node => {
+
+         if (node === this) {
+            const toggler = node;
+            const togglerTargets = toggler.getAttribute('data-toggler-target').split(',');
+            const customTargetClass = toggler.getAttribute('data-toggler-class');
+            const togglerGroup = toggler.getAttribute('data-toggler-group');
+            const togglerClass = customTargetClass ? customTargetClass : 'active';
 
             // if groups defined
             //------------------------------------------------------
@@ -53,10 +62,15 @@
                      document.querySelector(togglerTarget).classList.toggle(togglerClass);
                   });
                }
-         });
-      });
-   }
 
+            // stop iterating if found
+            return false;
+         }
+      })
+
+
+
+   }
 
    //*******************************************************
    // Remove class by group name
@@ -80,4 +94,17 @@
             const activeTarget = document.querySelector(target);
             activeTarget.classList.remove(activeClass);
          });
+      }
+
+
+   //*******************************************************
+   // Update collection
+   //*******************************************************
+
+      export function classtogglerUpdate(){
+         togglers.forEach(toggler => {
+            toggler.removeEventListener('click', handleToggleClick , true);
+         });
+         togglers = document.querySelectorAll('[data-toggler-target]');
+         classtoggler()
       }

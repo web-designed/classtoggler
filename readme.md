@@ -135,3 +135,11 @@ Imagine the following scenario: You opened a navigation via the classtoggler. Wi
    classtogglerRemoveClassByGroup('navigation');
 
 ```
+
+#### Update the classtoggler after dynamic elements were added to the DOM
+
+```javascript
+
+   classtogglerUpdate();
+
+```
