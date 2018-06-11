@@ -24,8 +24,6 @@
          // lets handle the bubbbling in case the selector is a parent f.ex <a data-toggler-target=""><img></a>
          nodes.some(node => {
 
-            console.log(node === this);
-
             if (node === this) {
                const toggler = node;
                const togglerTargets = toggler.getAttribute('data-toggler-target').replace(/\s+/g, '').split(',');
