@@ -102,6 +102,20 @@ One element controlling two (or more) containers
 
 ```
 
+#### Chaining classes
+
+One element controlling two (or more) containers
+
+```html
+<p>
+   <a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-blue">Toggle classes</a>
+</p>
+<p>
+   <a href="#" id="my-button">My button</a>
+</p>
+```
+
+
 
 #### Remove Class by a group name
 

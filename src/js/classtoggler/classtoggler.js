@@ -2,75 +2,91 @@
 
    window.togglers = document.querySelectorAll('[data-toggler-target]');
 
-   export function classtoggler(){
-      togglers.forEach(function(toggler){
-         toggler.addEventListener('click', handleToggleClick, true);
-      });
-   }
+   //*******************************************************
+   // Helpers
+   //*******************************************************
 
-   // remove all of the classes
-   function clear(groupItems, togglerClass){
-      groupItems.forEach(function(groupItem){
-         groupItem.classList.remove('active');
-         const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
-         togglerGroupTarget.classList.remove(togglerClass);
-      });
-   }
+      // remove all of the classes
+      function clear(groupItems, togglerClass){
+         groupItems.forEach(function(groupItem){
+            groupItem.classList.remove('active');
+            const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
+            togglerGroupTarget.classList.remove(togglerClass);
+         });
+      }
 
-   // handle click
-   function handleToggleClick(e){
+      // handle click
+      function handleToggleClick(e){
 
-      e.preventDefault();
-      const nodes = e.path;
+         e.preventDefault();
+         const nodes = e.path;
 
-      // lets handle the bubbbling in case the selector is a parent f.ex <a data-toggler-target=""><img></a>
-      nodes.forEach(node => {
+         // lets handle the bubbbling in case the selector is a parent f.ex <a data-toggler-target=""><img></a>
+         nodes.some(node => {
 
-         if (node === this) {
-            const toggler = node;
-            const togglerTargets = toggler.getAttribute('data-toggler-target').split(',');
-            const customTargetClass = toggler.getAttribute('data-toggler-class');
-            const togglerGroup = toggler.getAttribute('data-toggler-group');
-            const togglerClass = customTargetClass ? customTargetClass : 'active';
+            console.log(node === this);
 
-            // if groups defined
-            //------------------------------------------------------
+            if (node === this) {
+               const toggler = node;
+               const togglerTargets = toggler.getAttribute('data-toggler-target').replace(/\s+/g, '').split(',');
+               const customTargetClass = toggler.getAttribute('data-toggler-class');
+               const togglerGroup = toggler.getAttribute('data-toggler-group');
+               const togglerClass = customTargetClass ? customTargetClass : 'active';
 
-               const togglerGroupItems = document.querySelectorAll('[data-toggler-group='+ togglerGroup + ']')
+               // if groups defined
+               //------------------------------------------------------
 
-               if (togglerGroupItems.length > 0) {
-                  // if click took place on an opend element
-                  if (this.classList.contains('active')) {
-                     clear(togglerGroupItems, togglerClass);
+                  const togglerGroupItems = document.querySelectorAll('[data-toggler-group='+ togglerGroup + ']')
+
+                  if (togglerGroupItems.length > 0) {
+                     // if click took place on an opend element
+                     if (this.classList.contains('active')) {
+                        clear(togglerGroupItems, togglerClass);
+                     } else {
+                        clear(togglerGroupItems, togglerClass);
+
+                        // add the needed classes
+                        toggler.classList.add('active')
+                        togglerTargets.forEach(togglerTarget => {
+                           document.querySelector(togglerTarget).classList.add(togglerClass);
+                        });
+                     }
+
+               // if no groups defined
+               //------------------------------------------------------
                   } else {
-                     clear(togglerGroupItems, togglerClass);
 
                      // add the needed classes
-                     toggler.classList.add('active')
+                     toggler.classList.toggle('active')
                      togglerTargets.forEach(togglerTarget => {
-                        document.querySelector(togglerTarget).classList.add(togglerClass);
+
+                        const target = document.querySelector(togglerTarget);
+                        const currentClasses = target.classList;
+                        const newClasses = togglerClass.replace(/\s/g, '').split(',');
+
+                        newClasses.forEach(newClass => {
+                           currentClasses.toggle(newClass);
+                        })
+
                      });
                   }
 
-            // if no groups defined
-            //------------------------------------------------------
-               } else {
+               // stop iterating if found
+               return true;
+            }
+         })
+      }
 
-                  // add the needed classes
-                  toggler.classList.toggle('active')
-                  togglerTargets.forEach(togglerTarget => {
-                     document.querySelector(togglerTarget).classList.toggle(togglerClass);
-                  });
-               }
+   //*******************************************************
+   // Main
+   //*******************************************************
 
-            // stop iterating if found
-            return false;
-         }
-      })
+      export function classtoggler(){
+         togglers.forEach(function(toggler){
+            toggler.addEventListener('click', handleToggleClick, true);
+         });
+      }
 
-
-
-   }
 
    //*******************************************************
    // Remove class by group name
