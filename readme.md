@@ -104,7 +104,6 @@ One element controlling two (or more) containers
 
 #### Chaining classes
 
-One element controlling two (or more) containers
 
 ```html
 <p>
