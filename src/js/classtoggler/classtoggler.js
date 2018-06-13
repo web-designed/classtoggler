@@ -8,11 +8,12 @@
 
       // remove all of the classes
       function clear(groupItems, togglerClass){
-         groupItems.forEach(function(groupItem){
+         for (let i = 0; i < groupItems.length; i++) {
+            const groupItem = groupItems[i];
             groupItem.classList.remove('active');
             const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
             togglerGroupTarget.classList.remove(togglerClass);
-         });
+         }
       }
 
       // handle click
@@ -45,9 +46,10 @@
 
                         // add the needed classes
                         toggler.classList.add('active')
-                        togglerTargets.forEach(togglerTarget => {
+                        for (let i = 0; i < togglerTargets.length; i++) {
+                           const togglerTarget = togglerTargets[i];
                            document.querySelector(togglerTarget).classList.add(togglerClass);
-                        });
+                        }
                      }
 
                // if no groups defined
@@ -56,17 +58,18 @@
 
                      // add the needed classes
                      toggler.classList.toggle('active')
-                     togglerTargets.forEach(togglerTarget => {
-
+                     for (let i = 0; i < togglerTargets.length; i++) {
+                        const togglerTarget = togglerTargets[i];
                         const target = document.querySelector(togglerTarget);
                         const currentClasses = target.classList;
                         const newClasses = togglerClass.replace(/\s/g, '').split(',');
 
-                        newClasses.forEach(newClass => {
+                        for (let i = 0; i < newClasses.length; i++) {
+                           const newClass = newClasses[i];
                            currentClasses.toggle(newClass);
-                        })
+                        }
 
-                     });
+                     };
                   }
 
                // stop iterating if found
@@ -80,9 +83,10 @@
    //*******************************************************
 
       export function classtoggler(){
-         togglers.forEach(function(toggler){
+         for (let i = 0; i < togglers.length; i++) {
+            const toggler = togglers[i];
             toggler.addEventListener('click', handleToggleClick, true);
-         });
+         }
       }
 
 
@@ -94,7 +98,9 @@
 
          const activeItems = document.querySelectorAll(`[data-toggler-group=${groupName}]`);
 
-         activeItems.forEach(function(activeItem){
+         for (let i = 0; i < activeItems.length; i++) {
+
+            const activeItem = activeItems[i];
 
             // if custom class is defined
             const customClass = activeItem.getAttribute('data-toggler-class');
@@ -107,7 +113,7 @@
             const target = activeItem.getAttribute('data-toggler-target');
             const activeTarget = document.querySelector(target);
             activeTarget.classList.remove(activeClass);
-         });
+         }
       }
 
 
@@ -116,9 +122,10 @@
    //*******************************************************
 
       export function classtogglerUpdate(){
-         togglers.forEach(toggler => {
+         for (let i = 0; i < togglers.length; i++) {
+            const toggler = togglers[i];
             toggler.removeEventListener('click', handleToggleClick , true);
-         });
+         }
          togglers = document.querySelectorAll('[data-toggler-target]');
          classtoggler()
       }
