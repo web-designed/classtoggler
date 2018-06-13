@@ -23,7 +23,9 @@
          const nodes = e.path;
 
          // lets handle the bubbbling in case the selector is a parent f.ex <a data-toggler-target=""><img></a>
-         nodes.some(node => {
+         for (let i = 0; i < nodes.length; i++) {
+
+            const node = nodes[i];
 
             if (node === this) {
                const toggler = node;
@@ -75,7 +77,7 @@
                // stop iterating if found
                return true;
             }
-         })
+         }
       }
 
    //*******************************************************
