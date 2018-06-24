@@ -6,9 +6,10 @@
 
 ```
 1. npm i classtoggler
-2. import { classtoggler, classtogglerRemoveClassByGroup } from 'classtoggler';
+2. import { classtoggler, classtogglerRemoveClassByGroup, classtogglerUpdate } from 'classtoggler';
 3. classtoggler();
-4. if you need to close the group use: classtogglerRemoveClassByGroup('your-group-name')
+4. if you need to close the group use: classtogglerRemoveClassByGroup('your-group-name');
+5. if you need to update the classtoggler use classtogglerUpdate();
 ```
 
 #### Markup Options
