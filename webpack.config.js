@@ -8,6 +8,7 @@
    module.exports = (env) => {
 
       const isProduction = env === 'production';
+      const isGHPages = env === 'ghPages';
       const isStaging = env === 'staging';
 
       const CSSExtract = new ExtractTextPlugin({
@@ -22,7 +23,7 @@
             filename : '[name].bundle.js',
             chunkFilename: '[name].chunk.js', //naming convention for the codesplitting
             path     : path.resolve(__dirname, 'public/'),
-            publicPath: isStaging ? 'https://stagingurl.com/assets/' : '/',
+            publicPath: isGHPages ? '/classtoggler' : '/'
             // publicPath: isStaging ? 'https://stagingurl.com/assets/' : '/assets/',
          },
          module: {
@@ -115,7 +116,7 @@
             //    'Collapse': "exports-loader?Dropdown!bootstrap/js/dist/collapse"
             // })
          ],
-         devtool: isProduction || isStaging ? 'source-map' : 'inline-source-map',
+         devtool: isProduction || isStaging || isGHPages ? 'source-map' : 'inline-source-map',
          devServer: {
             contentBase: path.join(__dirname, "public"),
             historyApiFallback: true,
