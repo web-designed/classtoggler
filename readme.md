@@ -1,5 +1,10 @@
 ## A simple css class toggler for all kind of dropdowns, accordions, menus, also with a grouping option.
 
+### Demo
+
+check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
+
+
 ### Usage
 
 #### Import & initiate
