@@ -1,4 +1,4 @@
-## A simple css class toggler for all kind of dropdowns, accordions, menus, also with a grouping option.
+## A simple css class toggler for all kind of dropdowns, accordions, menus, optional form collapsing elements also with a grouping option.
 
 ### Demo
 
@@ -11,10 +11,11 @@ check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
 
 ```
 1. npm i classtoggler
-2. import { classtoggler, classtogglerRemoveClassByGroup, classtogglerUpdate } from 'classtoggler';
+2. import { classtoggler, classtogglerRemoveClassByGroup, classtogglerUpdate, classtogglerForm } from 'classtoggler';
 3. classtoggler();
 4. if you need to close the group use: classtogglerRemoveClassByGroup('your-group-name');
 5. if you need to update the classtoggler use classtogglerUpdate();
+6. if you need the form control use classtogglerForm('#unique-form-selector')
 ```
 
 #### Markup Options
@@ -25,23 +26,23 @@ check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
 #### Default active classes
 
 ```html
-<a href="#" data-toggler-target="#sub-menu">Item 1</a>
-<ul class="sub-menu" id="sub-menu">
-   <li><a href="#">Sub-item 1</a></li>
-   <li><a href="#">Sub-item 2</a></li>
-   <li><a href="#">Sub-item 3</a></li>
-</ul>
+   <a href="#" data-toggler-target="#sub-menu">Item 1</a>
+   <ul class="sub-menu" id="sub-menu">
+      <li><a href="#">Sub-item 1</a></li>
+      <li><a href="#">Sub-item 2</a></li>
+      <li><a href="#">Sub-item 3</a></li>
+   </ul>
 ```
 
 #### Custom css class
 
 ```html
-<a href="#" data-toggler-target="#sub-menu" data-toggler-class="test-class">Item 1</a>
-<ul class="sub-menu" id="sub-menu">
-   <li><a href="#">Sub-item 1</a></li>
-   <li><a href="#">Sub-item 2</a></li>
-   <li><a href="#">Sub-item 3</a></li>
-</ul>
+   <a href="#" data-toggler-target="#sub-menu" data-toggler-class="test-class">Item 1</a>
+   <ul class="sub-menu" id="sub-menu">
+      <li><a href="#">Sub-item 1</a></li>
+      <li><a href="#">Sub-item 2</a></li>
+      <li><a href="#">Sub-item 3</a></li>
+   </ul>
 ```
 
 #### Grouping
@@ -49,24 +50,24 @@ check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
 the grouped elements will be holding the active css class only one at the time. (good for dropdowns, accordions..)
 
 ```html
-<ul>
-   <li>
-      <a href="#" data-toggler-target="#sub-menu-1" data-toggler-group="navigation">Item 1</a>
-      <ul class="sub-menu" id="sub-menu-1">
-         <li><a href="#">Sub-item 1</a></li>
-         <li><a href="#">Sub-item 2</a></li>
-         <li><a href="#">Sub-item 3</a></li>
-      </ul>
-   </li>
-   <li>
-		<a href="#" data-toggler-target="#sub-menu-2" data-toggler-group="navigation">Item 2</a>
-		<ul class="sub-menu" id="sub-menu-2">
-         <li><a href="#">Sub-item 1</a></li>
-         <li><a href="#">Sub-item 2</a></li>
-         <li><a href="#">Sub-item 3</a></li>
-      </ul>
-	</li>
-</ul>
+   <ul>
+      <li>
+         <a href="#" data-toggler-target="#sub-menu-1" data-toggler-group="navigation">Item 1</a>
+         <ul class="sub-menu" id="sub-menu-1">
+            <li><a href="#">Sub-item 1</a></li>
+            <li><a href="#">Sub-item 2</a></li>
+            <li><a href="#">Sub-item 3</a></li>
+         </ul>
+      </li>
+      <li>
+   		<a href="#" data-toggler-target="#sub-menu-2" data-toggler-group="navigation">Item 2</a>
+   		<ul class="sub-menu" id="sub-menu-2">
+            <li><a href="#">Sub-item 1</a></li>
+            <li><a href="#">Sub-item 2</a></li>
+            <li><a href="#">Sub-item 3</a></li>
+         </ul>
+   	</li>
+   </ul>
 ```
 
 #### Chaining
@@ -75,36 +76,36 @@ One element controlling two (or more) containers
 
 ```html
 
-<p class="text-center">
-   <a class="btn" href="#" data-toggler-target="#section-1, #section-4">Red</a>
-   <a class="btn btn-blue" href="#" data-toggler-target="#section-2, #section-3">Blue</a>
-</p>
-<div class="row">
-   <div id="section-1" class="col-md-6 collapse active">
-      <div class="card red">
-         <h2>Red</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   <p class="text-center">
+      <a class="btn" href="#" data-toggler-target="#section-1, #section-4">Red</a>
+      <a class="btn btn-blue" href="#" data-toggler-target="#section-2, #section-3">Blue</a>
+   </p>
+   <div class="row">
+      <div id="section-1" class="col-md-6 collapse active">
+         <div class="card red">
+            <h2>Red</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         </div>
+      </div>
+      <div id="section-2" class="col-md-6 collapse active">
+         <div class="card blue">
+            <h2>Blue</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         </div>
+      </div>
+      <div id="section-3" class="col-md-6 collapse active">
+         <div class="card blue">
+            <h2>Blue</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         </div>
+      </div>
+      <div id="section-4" class="col-md-6 collapse active">
+         <div class="card red">
+            <h2>Red</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         </div>
       </div>
    </div>
-   <div id="section-2" class="col-md-6 collapse active">
-      <div class="card blue">
-         <h2>Blue</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-   </div>
-   <div id="section-3" class="col-md-6 collapse active">
-      <div class="card blue">
-         <h2>Blue</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-   </div>
-   <div id="section-4" class="col-md-6 collapse active">
-      <div class="card red">
-         <h2>Red</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-   </div>
-</div>
 
 ```
 
@@ -112,12 +113,12 @@ One element controlling two (or more) containers
 
 
 ```html
-<p>
-   <a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-blue">Toggle classes</a>
-</p>
-<p>
-   <a href="#" id="my-button">My button</a>
-</p>
+   <p>
+      <a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-blue">Toggle classes</a>
+   </p>
+   <p>
+      <a href="#" id="my-button">My button</a>
+   </p>
 ```
 
 
@@ -129,24 +130,24 @@ Great for closing menus, dropdowns etc.. on a custom event.
 Imagine the following scenario: You opened a navigation via the classtoggler. Without closing it, you start interacting with the content. F.ex. you clicked on a button somewhere in the text. You expect the menu to get closed automaticaly.
 
 ```html
-<ul>
-   <li>
-      <a href="#" data-toggler-target="#sub-menu-1" data-toggler-group="navigation">Item 1</a>
-      <ul class="sub-menu" id="sub-menu-1">
-         <li><a href="#">Sub-item 1</a></li>
-         <li><a href="#">Sub-item 2</a></li>
-         <li><a href="#">Sub-item 3</a></li>
-      </ul>
-   </li>
-   <li>
-      <a href="#" data-toggler-target="#sub-menu-2" data-toggler-group="navigation">Item 2</a>
-      <ul class="sub-menu" id="sub-menu-2">
-         <li><a href="#">Sub-item 1</a></li>
-         <li><a href="#">Sub-item 2</a></li>
-         <li><a href="#">Sub-item 3</a></li>
-      </ul>
-   </li>
-</ul>
+   <ul>
+      <li>
+         <a href="#" data-toggler-target="#sub-menu-1" data-toggler-group="navigation">Item 1</a>
+         <ul class="sub-menu" id="sub-menu-1">
+            <li><a href="#">Sub-item 1</a></li>
+            <li><a href="#">Sub-item 2</a></li>
+            <li><a href="#">Sub-item 3</a></li>
+         </ul>
+      </li>
+      <li>
+         <a href="#" data-toggler-target="#sub-menu-2" data-toggler-group="navigation">Item 2</a>
+         <ul class="sub-menu" id="sub-menu-2">
+            <li><a href="#">Sub-item 1</a></li>
+            <li><a href="#">Sub-item 2</a></li>
+            <li><a href="#">Sub-item 3</a></li>
+         </ul>
+      </li>
+   </ul>
 ```
 
 ```javascript
@@ -160,5 +161,45 @@ Imagine the following scenario: You opened a navigation via the classtoggler. Wi
 ```javascript
 
    classtogglerUpdate();
+
+```
+
+#### Control the visibility of optional form elements
+
+```html
+   <form id="test-form">
+     <div class="form-group">
+       <label for="name">Name</label>
+       <input type="text" class="form-control" id="name" placeholder="Enter your name">
+     </div>
+     <div class="form-group">
+       <label for="addres">Address</label>
+       <input type="password" class="form-control" id="addres" placeholder="Enter Your Address">
+     </div>
+     <div class="row">
+       <div class="form-group col-5">
+          <div class="form-check">
+             <input type="checkbox" class="form-check-input" id="add-optinal-address" data-toggler-form-target="#optinal-addreess" data-toggler-form-class="show">
+             <label class="form-check-label" for="add-optinal-address">Add an optinal Invoice Address</label>
+          </div>
+         </div>
+         <div id="optinal-addreess" class="collapsed col-7">
+            <div class="form-group">
+               <label for="optional-addres-name">Name</label>
+               <input type="password" class="form-control" id="optional-addres-name" placeholder="Enter Your Name">
+            </div>
+            <div class="form-group">
+               <label for="optional-addres-street">Street</label>
+               <input type="password" class="form-control" id="optional-addres-street" placeholder="Enter Your Street">
+            </div>
+         </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+```
+
+```javascript
+
+   classtogglerForm('#test-form');
 
 ```

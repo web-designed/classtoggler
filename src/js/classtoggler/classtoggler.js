@@ -119,3 +119,35 @@
          togglers = document.querySelectorAll('[data-toggler-target]');
          classtoggler()
       }
+
+
+   //*******************************************************
+   // Form elements
+   //*******************************************************
+
+      export function classtogglerForm(formSelector){
+
+         const form = document.querySelector(formSelector);
+         const activeInputs = form.querySelectorAll('[data-toggler-form-target]');
+
+         for (let i = 0; i < activeInputs.length; i++) {
+
+            const activeInput = activeInputs[i];
+
+            // cache the targeted elements
+            const target = document.querySelector(activeInput.getAttribute('data-toggler-form-target'));
+
+            // if custom class defined
+            let cssClass = activeInput.getAttribute('data-toggler-form-class')
+            cssClass = cssClass ? cssClass : 'show';
+
+            // add event listener change to the active inputs
+            activeInput.addEventListener('change', () => {
+               if (target.classList.contains(cssClass)) {
+                  target.classList.remove(cssClass)
+               } else {
+                  target.classList.add(cssClass)
+               }
+            });
+         }
+      }

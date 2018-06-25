@@ -4,8 +4,9 @@
    // classtoggler
    //*******************************************************
 
-      import { classtoggler, classtogglerRemoveClassByGroup, classtogglerUpdate } from './classtoggler/classtoggler.js';
+      import { classtoggler, classtogglerRemoveClassByGroup, classtogglerUpdate, classtogglerForm } from './classtoggler/classtoggler.js';
       classtoggler();
+      classtogglerForm('#test-form');
 
       // remove active class if clicked outside of the navigation
       const navigation = document.getElementById('primary-nav');
@@ -21,7 +22,7 @@
 
          // button
          const div = document.createElement('span');
-         const btn = `<a href="#" class="btn btn-blue" data-toggler-target="#div-2, #div-3">BLUE</href>`;
+         const btn = `<a href="#" class="btn btn-blue" data-toggler-class="show" data-toggler-target="#div-2, #div-3">BLUE</href>`;
          div.innerHTML = btn;
          const container = document.getElementById('update');
          container.appendChild(div);
@@ -29,7 +30,7 @@
          // card
          const cardsContainer = document.getElementById('update-cards');
          const card = document.createElement('div');
-         card.classList.add('col-md-6', 'collapse', 'active');
+         card.classList.add('col-md-6', 'collapsed', 'show');
          card.setAttribute('id', 'div-3');
          card.innerHTML = `
             <div class="card blue">
