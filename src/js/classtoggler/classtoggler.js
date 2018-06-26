@@ -134,20 +134,47 @@
 
             const activeInput = activeInputs[i];
 
-            // cache the targeted elements
-            const target = document.querySelector(activeInput.getAttribute('data-toggler-form-target'));
-
             // if custom class defined
             let cssClass = activeInput.getAttribute('data-toggler-form-class')
             cssClass = cssClass ? cssClass : 'show';
 
-            // add event listener change to the active inputs
+            // Mark the classes on load
+            handleChange(activeInput, cssClass);
+
+            // If change takes place
             activeInput.addEventListener('change', () => {
-               if (target.classList.contains(cssClass)) {
-                  target.classList.remove(cssClass)
-               } else {
-                  target.classList.add(cssClass)
-               }
+               handleChange(activeInput, cssClass);
             });
          }
       }
+
+      // Helper Functions
+      //--------------------------------------------------------
+
+      function handleChange(activeInput, cssClass) {
+         const groupName = activeInput.getAttribute('name');
+         if (groupName) {
+            const group = document.querySelectorAll(`[name="${groupName}"]`);
+            for (let i = 0; i < group.length; i++) {
+               const input = group[i];
+               const targetSelector = input.getAttribute('data-toggler-form-target');
+               if(targetSelector !== ''){
+                  const targetObject = document.querySelector(targetSelector);
+                  if (targetObject) {
+                     const target = document.querySelector(targetSelector);
+                     if (input.checked) {
+                        target.classList.add(cssClass);
+                     }
+                     else {
+                        target.classList.remove(cssClass);
+                     }
+                  }
+               }
+            }
+         }
+         else {
+            const missing = activeInput.getAttribute('id') || activeInput.getAttribute('class');
+            console.warn(`classtoggler: Please define the [name=""] attribute for ${missing}`);
+         }
+      }
+

@@ -210,96 +210,116 @@
 						<h2>4. Chaining</h2>
 						<p>One element controlling two (or more) containers</p>
 						<p class="text-center">
-							<a class="btn" href="#" data-toggler-class="show" data-toggler-target="#section-1, #section-4">Red</a>
-							<a class="btn btn-blue" href="#" data-toggler-class="show" data-toggler-target="#section-2, #section-3">Blue</a>
+							<button class="btn btn-danger" data-toggler-class="show" data-toggler-target="#section-1, #section-4">Red</button>
+							<button class="btn btn-primary" data-toggler-class="show" data-toggler-target="#section-2, #section-3">Blue</button>
 						</p>
 						<div class="row">
 							<div id="section-1" class="col-md-6 collapsed show">
-								<div class="card red">
-									<h2>Red</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="card bg-danger text-white mb-4">
+									<div class="card-header">
+										<h2 class="mb-0">Red</h2>
+									</div>
 								</div>
 							</div>
 							<div id="section-2" class="col-md-6 collapsed show">
-								<div class="card blue">
-									<h2>Blue</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="card bg-primary text-white">
+									<div class="card-header">
+										<h2 class="mb-0">Blue</h2>
+									</div>
 								</div>
 							</div>
 							<div id="section-3" class="col-md-6 collapsed show">
-								<div class="card blue">
-									<h2>Blue</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="card bg-primary text-white">
+									<div class="card-header">
+										<h2 class="mb-0">Blue</h2>
+									</div>
 								</div>
 							</div>
 							<div id="section-4" class="col-md-6 collapsed show">
-								<div class="card red">
-									<h2>Red</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="card bg-danger text-white mb-4">
+									<div class="card-header">
+										<h2 class="mb-0">Red</h2>
+									</div>
 								</div>
 							</div>
 						</div>
 						<h3 class="mb-3">Markup</h3>
 						<pre>
-							<code class="language-markup">
-&lt;p class="text-center"&gt;
-	&lt;a class="btn" href="#" data-toggler-target="#section-1, #section-4"&gt;Red&lt;/a&gt;
-	&lt;a class="btn btn-blue" href="#" data-toggler-target="#section-2, #section-3"&gt;Blue&lt;/a&gt;
-&lt;/p&gt;
-&lt;div class="row"&gt;
-	&lt;div id="section-1" class="col-md-6 collapsed active"&gt;
-		&lt;div class="card red"&gt;
-			&lt;h2&gt;Red&lt;/h2&gt;
-			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div id="section-2" class="col-md-6 collapsed active"&gt;
-		&lt;div class="card blue"&gt;
-			&lt;h2&gt;Blue&lt;/h2&gt;
-			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div id="section-3" class="col-md-6 collapsed active"&gt;
-		&lt;div class="card blue"&gt;
-			&lt;h2&gt;Blue&lt;/h2&gt;
-			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div id="section-4" class="col-md-6 collapsed active"&gt;
-		&lt;div class="card red"&gt;
-			&lt;h2&gt;Red&lt;/h2&gt;
-			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
+							<code class="language-markup">			 
+	&lt;p class="text-center"&gt;
+	  &lt;button class="btn btn-danger" data-toggler-class="show" data-toggler-target="#section-1, #section-4"&gt;Red&lt;/button&gt;
+	  &lt;button class="btn btn-primary" data-toggler-class="show" data-toggler-target="#section-2, #section-3"&gt;Blue&lt;/button&gt;
+	&lt;/p&gt;
+	&lt;div class="row"&gt;
+	  &lt;div id="section-1" class="col-md-6 collapsed show"&gt;
+	    &lt;div class="card bg-danger text-white mb-4"&gt;
+	      &lt;div class="card-header"&gt;
+	        &lt;h2 class="mb-0"&gt;Red&lt;/h2&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	  &lt;/div&gt;
+	  &lt;div id="section-2" class="col-md-6 collapsed show"&gt;
+	    &lt;div class="card bg-primary text-white"&gt;
+	      &lt;div class="card-header"&gt;
+	        &lt;h2 class="mb-0"&gt;Blue&lt;/h2&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	  &lt;/div&gt;
+	  &lt;div id="section-3" class="col-md-6 collapsed show"&gt;
+	    &lt;div class="card bg-primary text-white"&gt;
+	      &lt;div class="card-header"&gt;
+	        &lt;h2 class="mb-0"&gt;Blue&lt;/h2&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	  &lt;/div&gt;
+	  &lt;div id="section-4" class="col-md-6 collapsed show"&gt;
+	    &lt;div class="card bg-danger text-white mb-4"&gt;
+	      &lt;div class="card-header"&gt;
+	        &lt;h2 class="mb-0"&gt;Red&lt;/h2&gt;
+	      &lt;/div&gt;
+	    &lt;/div&gt;
+	  &lt;/div&gt;
+	&lt;/div&gt;			
 							</code>
 						</pre>
 					</section>
 					<section id="section-update">
 						<h2>5. Update</h2>
 						<p>Update the classtoggler after an element was added to the DOM</p>
-						<div class="card text-center">
-							<p class="text-center">Add the button and one more blue card</p>
-							<p><a href="#" class="btn btn-blue" id="addBtn">ADD BLUE</a></p>
+						<div class="card bg-light text-center mb-4">
+							<div class="card-header">
+								<p class="mb-0">Add the button and one more blue card</p>
+							</div>
+							<div class="card-body">
+								<button class="btn btn-primary" id="addBtn">ADD BLUE</button>
+							</div>
 						</div>
 						<p class="text-center" id="update">
-							<a class="btn" href="#" data-toggler-class="show" data-toggler-target="#div-1">Red</a>
+							<button class="btn btn-danger" data-toggler-class="show" data-toggler-target="#div-1">Red</button>
 						</p>
-						<div class="row" id="update-cards">
-							<div id="div-1" class="col-md-6 collapsed show">
-								<div class="card red">
-									<h2>DIV 1</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<div class="mb-4 row" id="update-cards">
+							<div id="div-1" class="col-md-6 collapsed show mb-4">
+								<div class="card bg-danger text-white">
+									<div class="card-header">
+										<h2 class="mb-0">DIV 1</h2>
+									</div>
+									<div class="card-body">
+										<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
 								</div>
 							</div>
 							<div id="div-2" class="col-md-6 collapsed show">
-								<div class="card blue">
-									<h2>DIV 2</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<div class="card bg-primary text-white">
+									<div class="card-header">
+										<h2 class="mb-0">DIV 2</h2>
+									</div>
+									<div class="card-body">
+										<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
 								</div>
 							</div>
 						</div>
-						<h3 class="mb-3">JS</h3>
+						<h3 class="mb-3">JS - after updating the DOM</h3>
 						<pre>
 							<code class="language-javascript">
 	classtogglerUpdate();
@@ -308,21 +328,21 @@
 					</section>
 					<section id="section-chaining-classes">
 						<h2>6. Chaining classes</h2>
-						<div class="card text-center">
-							<p class="text-center">Add <strong>.btn .btn-blue</strong> to the my button element</p>
-							<p><a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-blue">Toggle classes</a></p>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card text-center">
-									<p><a href="#" id="my-button">My button</a></p>
-								</div>
+						<div class="card text-center mb-4">
+							<div class="card-header">
+								<p class="mb-0 text-center">Toggle <strong>.btn .btn-primary .text-uppercase</strong> to the "my button" element</p>
+							</div>
+							<div class="card-body">
+								<button class="btn btn-primary" data-toggler-target="#my-button" data-toggler-class="btn, btn-primary, text-uppercase">Toggle classes</button>
+							</div>
+							<div class="card-footer">
+								<button href="#" id="my-button">My button</button>
 							</div>
 						</div>
 						<h3 class="mb-3">HTML</h3>
 						<pre>
 							<code class="language-markup">
-		&lt;a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-blue"&gt;Toggle classes&lt;/a&gt;
+		&lt;a href="#" class="btn btn-blue" data-toggler-target="#my-button" data-toggler-class="btn, btn-primary, text-uppercase"&gt;Toggle classes&lt;/a&gt;
 		&lt;a href="#" id="my-button"&gt;My button&lt;/a&gt;
 							</code>
 						</pre>
@@ -331,71 +351,115 @@
 					<section id="section-form">
 						<h2>6. Form elements control</h2>
 						<p></p>
-						<div class="card">
-							<form id="test-form">
-							  <div class="form-group">
-							    <label for="name">Name</label>
-							    <input type="text" class="form-control" id="name" placeholder="Enter your name">
-							  </div>
-							  <div class="form-group">
-							    <label for="addres">Address</label>
-							    <input type="password" class="form-control" id="addres" placeholder="Enter Your Address">
-							  </div>
-							  <div class="row">
-								  <div class="form-group col-5">
-									  <div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="add-optinal-address" data-toggler-form-target="#optinal-addreess" data-toggler-form-class="show">
-									    <label class="form-check-label" for="add-optinal-address">Add an optinal Invoice Address</label>
-									  </div>
-									</div>
-									<div id="optinal-addreess" class="collapsed col-7">
-										<div class="form-group">
-											<label for="optional-addres-name">Name</label>
-		  							    	<input type="password" class="form-control" id="optional-addres-name" placeholder="Enter Your Name">
+						<div class="card bg-light mb-4">
+							<div class="card-body">
+								<form id="test-form">
+									<div class="card bg-light mb-4">
+										<div class="card-header">
+											<div class="form-group mb-0">
+												<div class="form-check-inline form-radio">
+													<input class="form-check-input" name="guestUser" type="radio" id="register" value="user" data-toggler-form-target="#register-user" checked="checked">
+													<label class="form-check-label" for="register">Sign In</label>
+												</div>
+												<div class="form-check-inline form-radio">
+													<input class="form-check-input" name="guestUser" type="radio" id="guest" value="guest" data-toggler-form-target="#guest-only">
+													<label class="form-check-label" for="guest">Continue as guest</label>
+												</div>
+												<div class="form-check-inline form-radio">
+													<input class="form-check-input" name="guestUser" type="radio" id="contact" value="contact" data-toggler-form-target="#contact-me">
+													<label class="form-check-label" for="contact">Contact Me</label>
+												</div>
+											</div>
 										</div>
-										<div class="form-group">
-											<label for="optional-addres-street">Street</label>
-		  							    	<input type="password" class="form-control" id="optional-addres-street" placeholder="Enter Your Street">
+										<div class="card-body">
+
+											<div id="register-user" class="collapsed show">
+												<div class="form-group">
+													<label for="username">Username</label>
+													<input type="text" class="form-control" id="username" placeholder="Enter Your Username">
+												</div>
+												<div class="form-group">
+													<label for="username">Password</label>
+													<input type="password" class="form-control" id="username-password" placeholder="Enter Your Password">
+												</div>
+												<button class="btn btn-dark">Sign In</button>
+											</div>
+										
+											<div id="guest-only" class="collapsed">
+												<div class="form-group">
+													<label for="guest-name">Name</label>
+													<input type="text" class="form-control" id="guest-name" placeholder="Enter Your Name">
+												</div>
+												<div class="form-group">
+													<label for="guest-address">Address</label>
+													<input type="text" class="form-control" id="guest-address" placeholder="Enter Your Address">
+												</div>
+												<div class="form-group">
+													<label for="guest-email">E-Mail</label>
+													<input type="email" class="form-control" id="guest-email" placeholder="Enter Your E-Mail">
+												</div>
+											</div>
+											
+											<div id="contact-me" class="collapsed">
+												<div class="form-group">
+													<label for="username">Telephone</label>
+													<input type="tel" class="form-control" id="user-telnr" placeholder="Enter Your Telephone Number">
+												</div>
+												<div class="form-group">
+													<label for="username">E-Mail</label>
+													<input type="email" class="form-control" id="user-email" placeholder="Enter Your E-Mail">
+												</div>
+											</div>
+										</div>		
+									</div>
+									<div class="card bg-light mb-3">
+										<div class="card-header">
+											<div class="form-group mb-0">
+												<div class="form-check">
+													<input type="checkbox" class="form-check-input" id="add-optinal-address" name="add-optinal-address" data-toggler-form-target="#optinal-addreess" data-toggler-form-class="show">
+													<label class="form-check-label" for="add-optinal-address">Add an optional Invoice Address</label>
+												</div>
+											</div>
+										</div>
+										<div id="optinal-addreess" class="collapsed">
+											<div class="card-body">	
+												<div class="form-group">
+													<label for="optional-addres-name">Name</label>
+															<input type="text" class="form-control" id="optional-addres-name" placeholder="Enter Your Name">
+												</div>
+												<div class="form-group">
+													<label for="optional-addres-street">Address</label>
+													<input type="text" class="form-control" id="optional-addres-street" placeholder="Enter Your Street">
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							  	<button type="submit" class="btn btn-primary">Submit</button>
-							</form>
+
+									<div class="card bg-light mb-4">
+										<div class="card-header">
+											<div class="form-group mb-0">
+												<div class="form-check-inline form-radio">
+													<input class="form-check-input" name="message" type="radio" id="message" value="message" data-toggler-form-target="#message-wrapper" checked="checked">
+													<label class="form-check-label" for="message">Include a Message</label>
+												</div>
+												<div class="form-check-inline form-radio">
+													<input class="form-check-input" name="message" type="radio" id="no-message" value="no-message" data-toggler-form-target="">
+													<label class="form-check-label" for="no-message">No Message</label>
+												</div>
+											</div>
+										</div>
+										<div class="collapsed" id="message-wrapper">
+											<div class="card-body">
+												<div class="form-group">
+													<textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Enter a message"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+							</div>
 						</div>
-						<h3 class="mb-3">HTML</h3>
-						<pre>
-							<code class="language-markup">
-&lt;form id="test-form"&gt;
-  &lt;div class="form-group"&gt;
-    &lt;label for="name"&gt;Name&lt;/label&gt;
-    &lt;input type="text" class="form-control" id="name" placeholder="Enter your name"&gt;
-  &lt;/div&gt;
-  &lt;div class="form-group"&gt;
-    &lt;label for="addres"&gt;Address&lt;/label&gt;
-    &lt;input type="password" class="form-control" id="addres" placeholder="Enter Your Address"&gt;
-  &lt;/div&gt;
-  &lt;div class="row"&gt;
-    &lt;div class="form-group col-5"&gt;
-      &lt;div class="form-check"&gt;
-        &lt;input type="checkbox" class="form-check-input" id="add-optinal-address" data-toggler-form-target="#optinal-addreess" data-toggler-form-class="show"&gt;
-        &lt;label class="form-check-label" for="add-optinal-address"&gt;Add an optinal Invoice Address&lt;/label&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id="optinal-addreess" class="collapsed col-7"&gt;
-      &lt;div class="form-group"&gt;
-        &lt;label for="optional-addres-name"&gt;Name&lt;/label&gt;
-        &lt;input type="password" class="form-control" id="optional-addres-name" placeholder="Enter Your Name"&gt;
-      &lt;/div&gt;
-    &lt;div class="form-group"&gt;
-      &lt;label for="optional-addres-street"&gt;Street&lt;/label&gt;
-      &lt;input type="password" class="form-control" id="optional-addres-street" placeholder="Enter Your Street"&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
-							</code>
-						</pre>
 						<h3 class="mb-3 pt-4">JS</h3>
 						<pre>
 							<code class="language-javascript">

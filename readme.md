@@ -22,6 +22,7 @@ check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
 1. data-toggler-target - target the element
 2. data-toggler-class - define the css class name
 3. data-toggler-group - define the group
+4. data-toggler-form-target - use for targeting elements via radio & checkbox inputs
 
 #### Default active classes
 
@@ -166,37 +167,6 @@ Imagine the following scenario: You opened a navigation via the classtoggler. Wi
 
 #### Control the visibility of optional form elements
 
-```html
-   <form id="test-form">
-     <div class="form-group">
-       <label for="name">Name</label>
-       <input type="text" class="form-control" id="name" placeholder="Enter your name">
-     </div>
-     <div class="form-group">
-       <label for="addres">Address</label>
-       <input type="password" class="form-control" id="addres" placeholder="Enter Your Address">
-     </div>
-     <div class="row">
-       <div class="form-group col-5">
-          <div class="form-check">
-             <input type="checkbox" class="form-check-input" id="add-optinal-address" data-toggler-form-target="#optinal-addreess" data-toggler-form-class="show">
-             <label class="form-check-label" for="add-optinal-address">Add an optinal Invoice Address</label>
-          </div>
-         </div>
-         <div id="optinal-addreess" class="collapsed col-7">
-            <div class="form-group">
-               <label for="optional-addres-name">Name</label>
-               <input type="password" class="form-control" id="optional-addres-name" placeholder="Enter Your Name">
-            </div>
-            <div class="form-group">
-               <label for="optional-addres-street">Street</label>
-               <input type="password" class="form-control" id="optional-addres-street" placeholder="Enter Your Street">
-            </div>
-         </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-   </form>
-```
 
 ```javascript
 
