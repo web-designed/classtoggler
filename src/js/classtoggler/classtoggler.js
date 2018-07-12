@@ -1,7 +1,4 @@
 
-
-   window.togglers = document.querySelectorAll('[data-toggler-target]');
-
    //*******************************************************
    // Helpers
    //*******************************************************
@@ -73,6 +70,7 @@
    //*******************************************************
 
       export function classtoggler(){
+         window.togglers = document.querySelectorAll('[data-toggler-target]');
          for (let i = 0; i < togglers.length; i++) {
             const toggler = togglers[i];
             toggler.addEventListener('click', handleToggleClick, true);
@@ -128,24 +126,29 @@
       export function classtogglerForm(formSelector){
 
          const form = document.querySelector(formSelector);
-         const activeInputs = form.querySelectorAll('[data-toggler-form-target]');
+         if(form){
+            const activeInputs = form.querySelectorAll('[data-toggler-form-target]');
 
-         for (let i = 0; i < activeInputs.length; i++) {
+            for (let i = 0; i < activeInputs.length; i++) {
 
-            const activeInput = activeInputs[i];
+               const activeInput = activeInputs[i];
 
-            // if custom class defined
-            let cssClass = activeInput.getAttribute('data-toggler-form-class')
-            cssClass = cssClass ? cssClass : 'show';
+               // if custom class defined
+               let cssClass = activeInput.getAttribute('data-toggler-form-class')
+               cssClass = cssClass ? cssClass : 'show';
 
-            // Mark the classes on load
-            handleChange(activeInput, cssClass);
-
-            // If change takes place
-            activeInput.addEventListener('change', () => {
+               // Mark the classes on load
                handleChange(activeInput, cssClass);
-            });
+
+               // If change takes place
+               activeInput.addEventListener('change', function(){
+                  handleChange(activeInput, cssClass);
+               });
+            }
+         } else {
+            console.warn("the form you defined '"+ formSelector +"' doesn't exist in the DOM");
          }
+         
       }
 
       // Helper Functions
@@ -154,7 +157,7 @@
       function handleChange(activeInput, cssClass) {
          const groupName = activeInput.getAttribute('name');
          if (groupName) {
-            const group = document.querySelectorAll(`[name="${groupName}"]`);
+            const group = document.querySelectorAll('[name="' + groupName + '"]');
             for (let i = 0; i < group.length; i++) {
                const input = group[i];
                const targetSelector = input.getAttribute('data-toggler-form-target');
@@ -174,7 +177,7 @@
          }
          else {
             const missing = activeInput.getAttribute('id') || activeInput.getAttribute('class');
-            console.warn(`classtoggler: Please define the [name=""] attribute for ${missing}`);
+            console.warn("classtoggler: Please define the [name=''] attribute for " + missing);
          }
       }
 
