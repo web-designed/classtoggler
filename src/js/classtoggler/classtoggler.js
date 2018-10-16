@@ -5,7 +5,7 @@
 
       // remove all of the classes
       function clear(groupItems, togglerClass){
-         for (let i = 0; i < groupItems.length; i++) {
+         for (var i = 0; i < groupItems.length; i++) {
             const groupItem = groupItems[i];
             groupItem.classList.remove('active');
             const togglerGroupTarget = document.querySelector(groupItem.getAttribute('data-toggler-target'));
@@ -38,7 +38,7 @@
 
                   // add the needed classes
                   toggler.classList.add('active')
-                  for (let i = 0; i < togglerTargets.length; i++) {
+                  for (var i = 0; i < togglerTargets.length; i++) {
                      const togglerTarget = togglerTargets[i];
                      document.querySelector(togglerTarget).classList.add(togglerClass);
                   }
@@ -50,14 +50,14 @@
 
                // add the needed classes
                toggler.classList.toggle('active')
-               for (let i = 0; i < togglerTargets.length; i++) {
+               for (var i = 0; i < togglerTargets.length; i++) {
                   const togglerTarget = togglerTargets[i];
                   const target = document.querySelector(togglerTarget);
                   const currentClasses = target.classList;
                   const newClasses = togglerClass.replace(/\s/g, '').split(',');
 
-                  for (let i = 0; i < newClasses.length; i++) {
-                     const newClass = newClasses[i];
+                  for (var key = 0; key < newClasses.length; key++) {
+                     const newClass = newClasses[key];
                      currentClasses.toggle(newClass);
                   }
 
@@ -71,7 +71,7 @@
 
       export function classtoggler(){
          window.togglers = document.querySelectorAll('[data-toggler-target]');
-         for (let i = 0; i < togglers.length; i++) {
+         for (var i = 0; i < togglers.length; i++) {
             const toggler = togglers[i];
             toggler.addEventListener('click', handleToggleClick, true);
          }
@@ -86,7 +86,7 @@
 
          const activeItems = document.querySelectorAll('[data-toggler-group="' + groupName + '"]');
 
-         for (let i = 0; i < activeItems.length; i++) {
+         for (var i = 0; i < activeItems.length; i++) {
 
             const activeItem = activeItems[i];
 
@@ -110,7 +110,7 @@
    //*******************************************************
 
       export function classtogglerUpdate(){
-         for (let i = 0; i < togglers.length; i++) {
+         for (var i = 0; i < togglers.length; i++) {
             const toggler = togglers[i];
             toggler.removeEventListener('click', handleToggleClick , true);
          }
@@ -129,12 +129,12 @@
          if(form){
             const activeInputs = form.querySelectorAll('[data-toggler-form-target]');
 
-            for (let i = 0; i < activeInputs.length; i++) {
+            for (var i = 0; i < activeInputs.length; i++) {
 
                const activeInput = activeInputs[i];
 
                // if custom class defined
-               let cssClass = activeInput.getAttribute('data-toggler-form-class')
+               var cssClass = activeInput.getAttribute('data-toggler-form-class')
                cssClass = cssClass ? cssClass : 'show';
 
                // Mark the classes on load
@@ -158,7 +158,7 @@
          const groupName = activeInput.getAttribute('name');
          if (groupName) {
             const group = document.querySelectorAll('[name="' + groupName + '"]');
-            for (let i = 0; i < group.length; i++) {
+            for (var i = 0; i < group.length; i++) {
                const input = group[i];
                const targetSelector = input.getAttribute('data-toggler-form-target');
                if(targetSelector !== ''){
