@@ -10,9 +10,7 @@
       "build:dev": "webpack",
       "build:staging": "webpack -p --env staging",
       "build:prod": "webpack -p --env production",
-      "build:ghpages": "webpack -p --env ghPages",
-      "dev-server": "webpack-dev-server",
-      "deploy": "git subtree push --prefix public classtoggler gh-pages"
+      "dev-server": "webpack-dev-server"
    },
    "dependencies": {
       "autoprefixer": "^8.5.0",

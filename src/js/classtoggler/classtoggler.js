@@ -107,8 +107,9 @@ const handleInputClass = (item, target) => {
       console.warn(`:::CLASSTOGGLER::: ${target} not find in the DOM`);
       return false;
    }
-   var cssClass = targetObject.getAttribute("data-toggler-form-class");
-   cssClass = cssClass ? cssClass : "show";
+   var cssClass = item.getAttribute("data-toggler-class");
+   console.log(item, cssClass);
+   cssClass = cssClass ? cssClass : "active";
    if (item.checked) {
       targetObject.classList.add(cssClass);
    } else {
@@ -187,7 +188,7 @@ export function classtogglerForm() {
 
       // if custom class defined
       var cssClass = activeInput.getAttribute("data-toggler-form-class");
-      cssClass = cssClass ? cssClass : "show";
+      cssClass = cssClass ? cssClass : "active";
 
       // Mark the classes on load
       handleChange(activeInput, cssClass);
