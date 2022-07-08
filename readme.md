@@ -2,7 +2,7 @@
 
 ### Demo
 
-check out the [DEMO](https://web-designed.github.io/classtoggler/demo.html)
+check out the [DEMO](classtoggler.web-designed.eu)
 
 
 ### Usage
